@@ -19,6 +19,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Role</th>
       <th>Phone</th>
       <th>Email</th>
       <th>Address</th>
@@ -29,6 +30,7 @@
   <% @group.members.each do |member| %>
     <tr>
       <td><%= member.name %></td>
+      <td><%= member.memberships.first.role %></td>
       <td><%= member.phone %></td>
       <td><%= member.email %></td>
       <td><%= member.address %></td>
