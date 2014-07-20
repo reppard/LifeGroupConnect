@@ -28,7 +28,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        Membership.new(:group_id => params[:membership][:group_id], :member_id => @member.id).save
+        Membership.new(:role => params[:membership][:role], :group_id => params[:membership][:group_id], :member_id => @member.id).save
         format.html { redirect_to @member, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
       else
@@ -44,7 +44,7 @@ class MembersController < ApplicationController
     membership = Membership.find_by(:member_id => @member.id)
     respond_to do |format|
       if @member.update(member_params)
-        membership.update(:group_id => params[:membership][:group_id], :member_id => @member.id)
+        membership.update(:role => params[:membership][:role], :group_id => params[:membership][:group_id], :member_id => @member.id)
         format.html { redirect_to @member, notice: 'Member was successfully updated.' }
         format.json { render :show, status: :ok, location: @member }
       else
