@@ -1,0 +1,21 @@
+// Place all the styles related to the groups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table {
+  border: 2px dotted #000;
+}
+
+thead {
+  background: #000;
+  color: #FFF;
+}
+
+td { 
+  border: 1px solid black;
+  padding:3px;
+}
+
+th {
+  padding:3px;
+}
