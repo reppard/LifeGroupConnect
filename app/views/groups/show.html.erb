@@ -3,46 +3,39 @@
 <p>
   <strong>Name:</strong>
   <%= @group.name %>
-</p>
-
-<p>
   <strong>Meeting day:</strong>
   <%= @group.meeting_day %>
 </p>
-
 <p>
   <strong>Meeting time:</strong>
-  <%= @group.meeting_time %>
-</p>
-
-<p>
+  <%= @group.meeting_time.strftime("%I:%M %p") %>
   <strong>Location:</strong>
   <%= @group.location %>
 </p>
 
 <p>
-<strong>Members:</strong>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Address</th>
-      </tr>
-    </thead>
+<h2><strong>Member List</strong></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
+    </tr>
+  </thead>
 
-    <tbody>
-    <% @group.members.each do |member| %>
-      <tr>
-        <td><%= member.name %></td>
-        <td><%= member.phone %></td>
-        <td><%= member.email %></td>
-        <td><%= member.address %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+  <tbody>
+  <% @group.members.each do |member| %>
+    <tr>
+      <td><%= member.name %></td>
+      <td><%= member.phone %></td>
+      <td><%= member.email %></td>
+      <td><%= member.address %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 </p>
 
 <p><%= link_to 'New Member', new_member_path %></p>
