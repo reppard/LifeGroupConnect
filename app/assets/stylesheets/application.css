@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+body, html {
+  background:#000;
+  height:100%;
+  padding:0;
+}
+
+h1.logo {
+  font-size:4em;
+  color: #00CCFF;
+  text-shadow:
+  -2px -2px 0 #000,
+  2px -2px 0 #000,
+  -2px 2px 0 #000,
+  2px 2px 0 #000;
+}
+
+.logo a, .logo a:visited, .logo a:hover {
+  color: #00CCFF;
+  text-decoration:none;
+  background:none;
+}
+
+.container {
+  text-align:center;
+  top:0;
+  position:fixed;
+  width:80%;
+  height:100%;
+  background:#fff;
+  margin-left:10%;
+  margin-right:10%;
+}
