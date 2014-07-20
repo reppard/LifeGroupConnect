@@ -31,6 +31,10 @@
     <%= f.label :group %><br>
     <%= collection_select(:membership, :group_id, Group.all, :id, :name ) %>
   </div>
+  <div class="field">
+    <%= f.label :role %><br>
+    <%= select(:membership, :role, roles) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
