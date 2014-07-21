@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 describe Group, '#members_sorted_by_name' do
-  before(:each) do
-  end
   it 'returns members sorted by name' do
     @members = []
     ["Reppard","Vada","River","Ashley"].each do |name|
