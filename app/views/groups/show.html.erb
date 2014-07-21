@@ -27,7 +27,7 @@
   </thead>
 
   <tbody>
-  <% @group.members_sorted.each do |member| %>
+  <% @group.members_sorted_by_name.each do |member| %>
     <tr>
       <td><%= member.name %></td>
       <td><%= member.memberships.first.role %></td>
