@@ -1,21 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-  <strong>Meeting day:</strong>
-  <%= @group.meeting_day %>
+<h2>"<%= @group.name %>" Meets on <%= @group.meeting_day %> @ <%= @group.meeting_time.strftime("%I:%M %p") %></h2>
+<h2>Venue: <%= @group.location %></h2>
+<%= link_to 'Edit Group', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
 </p>
 <p>
-  <strong>Meeting time:</strong>
-  <%= @group.meeting_time.strftime("%I:%M %p") %>
-  <strong>Location:</strong>
-  <%= @group.location %>
-</p>
-
-<p>
+<hr>
 <h2><strong>Member List</strong></h2>
 <%= button_to 'New Member', new_member_path, method: 'get' %>
+</p>
 <table>
   <thead>
     <tr>
@@ -39,8 +34,11 @@
   <% end %>
   </tbody>
 </table>
+<p>
+<hr>
 <h2><strong>Prayer Requests</strong></h2>
-<%= button_to 'New Prayer Request', new_prayer_request_path, method: 'get' %>
+<%= link_to 'New Prayer Request', new_prayer_request_path(group_id: @group.id)%>
+</p>
 <table>
   <thead>
     <tr>
@@ -54,22 +52,18 @@
   </thead>
 
   <tbody>
-    <% @group.prayer_requests.each do |prayer_request| %>
-      <tr>
-        <td><%= prayer_request.status %></td>
-        <td><%= prayer_request.requesters_name %></td>
-        <td><%= prayer_request.focus %></td>
-        <td><%= prayer_request.description %></td>
-        <td><%= prayer_request.until %></td>
-        <td><%= link_to 'Show', prayer_request %></td>
-        <td><%= link_to 'Edit', edit_prayer_request_path(prayer_request) %></td>
-        <td><%= link_to 'Destroy', prayer_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @group.prayer_requests.each do |prayer_request| %>
+    <tr>
+      <td><%= prayer_request.status %></td>
+      <td><%= prayer_request.requesters_name %></td>
+      <td><%= prayer_request.focus %></td>
+      <td><%= prayer_request.description %></td>
+      <td><%= prayer_request.until %></td>
+      <td><%= link_to 'Show', prayer_request %></td>
+      <td><%= link_to 'Edit', edit_prayer_request_path(prayer_request) %></td>
+      <td><%= link_to 'Destroy', prayer_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
-</p>
-
-<p><%= link_to 'New Member', new_member_path %></p>
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<hr>

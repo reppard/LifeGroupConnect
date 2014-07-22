@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :group_id %><br>
-    <%= f.collection_select(:group_id, Group.all, :id, :name) %>
+    <%= f.collection_select(:group_id, Group.all, :id, :name, {:selected => params[:group_id]}) %>
   </div>
   <div class="field">
     <%= f.label :status %><br>
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :requested_by %><br>
-    <%= f.collection_select(:requested_by, Member.all, :id, :name) %>
+    <%= f.collection_select(:requested_by, members_of_group(params[:group_id]), :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :focus %><br>
