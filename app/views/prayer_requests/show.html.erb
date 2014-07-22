@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @prayer_request.group_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @prayer_request.status %>
+</p>
+
+<p>
+  <strong>Requested by:</strong>
+  <%= @prayer_request.requested_by %>
+</p>
+
+<p>
+  <strong>Focus:</strong>
+  <%= @prayer_request.focus %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @prayer_request.description %>
+</p>
+
+<p>
+  <strong>Until:</strong>
+  <%= @prayer_request.until %>
+</p>
+
+<%= link_to 'Edit', edit_prayer_request_path(@prayer_request) %> |
+<%= link_to 'Back', prayer_requests_path %>

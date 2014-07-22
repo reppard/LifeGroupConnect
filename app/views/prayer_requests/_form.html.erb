@@ -1,0 +1,41 @@
+<%= form_for(@prayer_request) do |f| %>
+  <% if @prayer_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prayer_request.errors.count, "error") %> prohibited this prayer_request from being saved:</h2>
+
+      <ul>
+      <% @prayer_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :group_id %><br>
+    <%= f.collection_select(:group_id, Group.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :requested_by %><br>
+    <%= f.collection_select(:requested_by, Member.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :focus %><br>
+    <%= f.text_field :focus %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :until %><br>
+    <%= f.datetime_select :until %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

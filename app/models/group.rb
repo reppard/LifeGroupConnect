@@ -1,4 +1,5 @@
 class Group < ActiveRecord::Base
+  has_many :prayer_requests
   has_many :memberships
   has_many :members, :through => :memberships
 
