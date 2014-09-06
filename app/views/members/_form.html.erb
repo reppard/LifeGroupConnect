@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :group %><br>
-    <%= collection_select(:membership, :group_id, Group.all, :id, :name ) %>
+    <%= collection_select(:membership, :group_id, Group.all, :id, :name,{:selected => (@member.group_id || params[:group_id]) } ) %>
   </div>
   <div class="field">
     <%= f.label :role %><br>
-    <%= select(:membership, :role, roles) %>
+    <%= select(:membership, :role, roles, {:selected => @member.role }) %>
   </div>
   <div class="actions">
     <%= f.submit %>

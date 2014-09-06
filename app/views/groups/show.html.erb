@@ -9,7 +9,7 @@
 <p>
 <hr>
 <h2><strong>Member List</strong></h2>
-<%= button_to 'New Member', new_member_path, method: 'get' %>
+<%= link_to 'New Member', new_member_path(group_id: @group.id)%>
 </p>
 <table>
   <thead>
@@ -19,6 +19,7 @@
       <th>Phone</th>
       <th>Email</th>
       <th>Address</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -30,6 +31,8 @@
       <td><%= member.phone %></td>
       <td><%= member.email %></td>
       <td><%= member.address %></td>
+      <td><%= link_to 'Edit', edit_member_path(member) %></td>
+      <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </tbody>
